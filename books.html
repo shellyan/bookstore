@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" " http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd ">
+<html xmlns=" http://www.w3.org/1999/xhtml ">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Request json test</title>         
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+<script src="books.js" type="text/javascript"></script> 
+
+    <style type="text/css">
+        body {
+            font-family: verdana,arial,sans-serif;
+            font-size: 10pt;
+            margin: 30px;
+            background-color: #ffcc00;
+        }
+    </style>
+
+</head>
+<body> 
+<p> All Books   
+<a href="#" id="getdata-button">  Show All</a>
+    <form  id="on_submit" method="post">
+<input id= "book_name" list="books" name="books">
+<datalist id="books">
+  <option value="Scala for the Impatient">
+  <option value="Scala in Depth">
+  <option value="Programming in Scala">
+</datalist>
+<input type="submit">
+</form>
+    <div id="select" value="">
+Select a book to buy.
+
+    </div>       <div id="test"></div>  
+
+
+
+</p> 
+<div id="showdata"></div>
+<script>
+    function doSubmit() {
+        var title = $('#select').val();
+
+        //alert("HATEOAS: \n" + "http://localhost:8080/BookstoreServices.RS/bookstore/books/" + title);
+        createCookie('HATEOAS', title, 1);
+        document.location.href = 'cart.html';
+    };
+
+    function createCookie(c_name, value, exdays) {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + exdays);
+        var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+        document.cookie = c_name + "=" + c_value;
+    }
+</script>
+</body>
+</html>

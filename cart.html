@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" " http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd ">
+<html xmlns=" http://www.w3.org/1999/xhtml ">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Request json test</title>         
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+<script src="cart.js" type="text/javascript"></script> 
+
+    <style type="text/css">
+        body {
+            font-family: verdana,arial,sans-serif;
+            font-size: 10pt;
+            margin: 30px;
+            background-color: #ffcc00;
+        }
+    </style>
+
+</head>
+<body> 
+<p>My Cart </p> 
+
+ <div id="cart">
+ <button id="get_order">get_order</button>
+<fieldset>    
+<legend>Your Order Details</legend>
+<label for="first_name">First Name:</label><br>
+<input type="text" id="firstname" value="" maxlength="100" disabled/><br>
+<label for="last_name">Last Name:</label><br>
+<input type="text" id="lastname" value="" maxlength="100" /><br>
+<label for="address">Address:</label><br>
+<input type="text" id="address" value="" maxlength="100" /><br>
+<label for="card">card:</label><br>
+<input type="text" id="card" value="" maxlength="100" /><br>
+<label for="book">book:</label><br>
+        <div id="showdata">order_info</div>
+
+<button  id="place_order" /> Place order </button>
+        <div id="link" value="">
+
+</fieldset>
+     </div>
+
+    <script>
+        function doSubmit() {
+            var link = $('#link').val();
+
+            alert("HATEOAS: \n" + link);
+            createCookie('order_id_link', link, 1);
+
+
+
+            //document.location.href = 'pay.html';
+        };
+
+        function createCookie(c_name, value, exdays) {
+            var exdate = new Date();
+            exdate.setDate(exdate.getDate() + exdays);
+            var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+            document.cookie = c_name + "=" + c_value;
+        }
+</script>
+
+</body>
+</html>
